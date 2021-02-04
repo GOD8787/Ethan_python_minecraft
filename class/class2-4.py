@@ -1,0 +1,19 @@
+# -*- coding: utf-8 -*-
+"""
+Created on Tue Feb  2 13:39:51 2021
+
+@author: USER
+"""
+from mcpi.minecraft import Minecraft as mcs
+mc = mcs.create()
+import time
+while True:
+    x,y,z = mc.player.getTilePos()
+    a = mc.getBlock(x+1,y-1,z)
+    b = mc.getBlock(x-1,y-1,z)
+    c = mc.getBlock(x,y-1,z-1)
+    d = mc.getBlock(x,y-1,z+1)
+    time.sleep(0.01)
+    if a == 8 or b == 8 or c == 8 or d == 8 \
+        a == 9 or b == 9 or c == 9 or d == 9:
+            mc.setBlocks(x+1,y,z+1,x-1,y,z-1,20)
